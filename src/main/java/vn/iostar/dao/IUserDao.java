@@ -13,6 +13,8 @@ public interface IUserDao {
 	void insert(UserModel user);
 	
 	UserModel findByUserName(String username);
+	
+	int updateByUserName(String username, String password);
 }
 
 

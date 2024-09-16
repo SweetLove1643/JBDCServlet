@@ -25,14 +25,22 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public UserModel register(String username, String password,String images, String fullname, String email, String phone) {
+	public UserModel register(String username, String password, String images, String fullname, String email,
+			String phone) {
 		if (userDao.findByUserName(username) != null) {
-	        System.out.println("User đã tồn tại!");
-	        return null;
-	    }
-		UserModel user = new UserModel(username, password,images,fullname,email,phone);
+			System.out.println("User đã tồn tại!");
+			return null;
+		}
+		UserModel user = new UserModel(username, password, images, fullname, email, phone);
 		userDao.insert(user);
 		return user;
+	}
+
+	@Override
+	public int UpdateByUserName(String username, String password) {
+		int result = userDao.updateByUserName(username, password);
+
+		return result;
 	}
 
 }

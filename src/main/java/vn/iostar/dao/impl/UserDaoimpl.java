@@ -131,6 +131,42 @@ public class UserDaoimpl extends DBConnectSQL implements IUserDao {
 	        }
 	    }
 	}
+	
+	@Override
+	public int updateByUserName(String Username, String pwd) {
+		String sql = "UPDATE dbo.table1 SET password = ' ? ' WHERE username = ' ? '";
+		
+		try {
+			conn = super.getConnection();
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(0, pwd);
+			ps.setString(1, Username);
+			
+			int result = ps.executeUpdate();
+			
+			if(result > 0) {
+				System.out.print("Update successfully.");
+				return result;
+			}
+			return 0;
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+	        try {
+	            if(ps != null) ps.close();
+	            if(conn != null) conn.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+		return 0;
+		
+	}
 
 	public static void main(String[] args) {
 //	    // Tạo đối tượng UserDaoImpl để thực hiện các thao tác với cơ sở dữ liệu

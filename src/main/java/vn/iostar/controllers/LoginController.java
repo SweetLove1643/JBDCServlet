@@ -40,7 +40,13 @@ public class LoginController extends HttpServlet {
 		String password = req.getParameter("pwd");
 		String remember = req.getParameter("remember");
 		
+		String action = req.getParameter("action");
 		String alertMsg = "";
+		
+		if("register".equals(action)) {
+			req.getRequestDispatcher("/view/register.jsp").forward(req, resp);
+			return;
+		}
 		boolean isRememberMe = false;
 		if("on".equals(remember)) {
 			isRememberMe = true;

@@ -48,17 +48,20 @@ button {
 </style>   
 </head>    
 <body>    
-    <center> <h1> Login Form </h1> </center>   
-    <form action = "login" method = "post">  
+    <center> <h1> Forgot Password </h1> </center>   
+    <form action = "forgotpwd" method = "post">  
         <div class="container">   
             <label>Username : </label>   
-            <input type="text" placeholder="Enter Username" name="uname" required>  
-            <label>Password : </label>   
-            <input type="password" placeholder="Enter Password" name="pwd" required>  
-            <button type="submit" name="action" value="login">Login</button>   
-            <input type="checkbox" checked="checked" name="remember"> Remember me   
-            <button type="submit" name="action" value="register" class = "registerbtn"> Register</button>   
-            Forgot <a href="#"> password? </a>   
+            <input type="text" placeholder="Enter Username" name="uname" required>
+             <label>Password : </label>   
+            <input type="password" placeholder="Enter Password" name="pwd" required> 
+            <label>Email : </label>   
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <label>Phone : </label>   
+            <input type="text" placeholder="Enter Phone" name="phone" required>
+            
+              
+            <button type="submit" >Next</button> 
         </div>   
     </form>     
 </body>     
