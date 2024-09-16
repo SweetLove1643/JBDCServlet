@@ -13,6 +13,7 @@ import vn.iostar.serives.impl.UserService;
 
 
 @WebServlet(urlPatterns = {"/forgotpwd"})
+
 public class ForgotController extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
@@ -22,7 +23,7 @@ public class ForgotController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doGet(req, resp);
+		req.getRequestDispatcher("/view/forgot.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -41,11 +42,22 @@ public class ForgotController extends HttpServlet{
 		
 		UserModel user = service.FindByUserName(username);
 		
-		if(email.equals(user.getEmail()) && phone.equals(user.getPhone())) {
-			alert = "Update successfully.";
-			service.UpdateByUserName(username, password);
+		if (user != null) {
+			if (email.equals(user.getEmail()) && phone.equals(user.getPhone())) {
+				service.UpdateByUserName(username, password);
+				alert = "Cập nhật mật khẩu thành công. Vui lòng đăng nhập.";
+				
+				req.setAttribute("alert", alert);
+				req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
+			} else {
+				alert = "Email hoặc số điện thoại không khớp.";
+				req.setAttribute("alert", alert);
+				req.getRequestDispatcher("/view/forgotpwd.jsp").forward(req, resp);
+			}
+		} else {
+			alert = "Tài khoản không tồn tại.";
 			req.setAttribute("alert", alert);
-			req.getRequestDispatcher("/view/login.jsp").forward(req, resp);
+			req.getRequestDispatcher("/view/forgotpwd.jsp").forward(req, resp);
 		}
 	}
 }

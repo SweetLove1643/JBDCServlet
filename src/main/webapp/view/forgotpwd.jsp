@@ -49,7 +49,7 @@ button {
 </head>    
 <body>    
     <center> <h1> Forgot Password </h1> </center>   
-    <form action = "forgotpwd" method = "post">  
+    <form action = "${pageContext.request.contextPath}/forgotpwd" method="post">  
         <div class="container">   
             <label>Username : </label>   
             <input type="text" placeholder="Enter Username" name="uname" required>
