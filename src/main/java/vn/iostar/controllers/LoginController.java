@@ -60,7 +60,7 @@ public class LoginController extends HttpServlet {
 		}
 		
 		UserModel user = service.login(username, password);
-		
+
 		if(user!=null){
 			 HttpSession session = req.getSession(true);
 			 session.setAttribute("account", user);

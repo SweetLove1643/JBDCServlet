@@ -23,6 +23,7 @@ public class DBConnectSQL {
 				if (instance == null || instance.trim().isEmpty())
 					url = "jdbc:sqlserver://" + serverName + " ;databaseName="
 							+ dbName;
+				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 				return DriverManager.getConnection(url, userID, password);
 			
 			

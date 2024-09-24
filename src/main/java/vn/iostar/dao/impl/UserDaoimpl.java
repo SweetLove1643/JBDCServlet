@@ -100,13 +100,13 @@ public class UserDaoimpl extends DBConnectSQL implements IUserDao {
 	        conn = super.getConnection();
 	        ps = conn.prepareStatement(sql);
 
-	        ps.setString(0, user.getUsername());
-	        ps.setString(1, user.getPassword());
-	        ps.setString(2, user.getImages());
-	        ps.setString(3, user.getFullname());
-	        ps.setString(4, user.getEmail());
-	        ps.setString(5, user.getPhone());
-	        ps.setString(6, "2"); 
+	        ps.setString(1, user.getUsername());
+	        ps.setString(2, user.getPassword());
+	        ps.setString(3, user.getImages());
+	        ps.setString(4, user.getFullname());
+	        ps.setString(5, user.getEmail());
+	        ps.setString(6, user.getPhone());
+	        ps.setString(7, "2"); 
 	        ps.setTimestamp(8, java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
 
 	        int result = ps.executeUpdate(); 
@@ -239,9 +239,9 @@ public class UserDaoimpl extends DBConnectSQL implements IUserDao {
 				user.setFullname(rs.getString("fullname"));
 				user.setPassword(rs.getString("password"));
 				user.setImages(rs.getString("images"));
-				user.setRoleid(Integer.parseInt(rs.getString("roleid")));
+				user.setRoleid(Integer.parseInt(rs.getString("role")));
 				user.setPhone(rs.getString("phone"));
-				user.setCreateDate(rs.getDate("createdDate"));
+				user.setCreateDate(rs.getDate("createDate"));
 				return user;
 			}
 		} catch (Exception e) {

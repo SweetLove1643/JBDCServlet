@@ -1,65 +1,79 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix = "c" uri = "jakarta.tags.core" %>
-<!DOCTYPE html>   
-<html>   
-<head>  
-<meta name="viewport" content="width=device-width, initial-scale=1">  
-<title> Login Page </title>  
-<style>   
-Body {  
-  font-family: Calibri, Helvetica, sans-serif;  
-  background-color: pink;  
-}  
-button {   
-       background-color: #4CAF50;   
-       width: 100%;  
-        color: orange;   
-        padding: 15px;   
-        margin: 10px 0px;   
-        border: none;   
-        cursor: pointer;   
-         }   
- form {   
-        border: 3px solid #f1f1f1;   
-    }   
- input[type=text], input[type=password] {   
-        width: 100%;   
-        margin: 8px 0;  
-        padding: 12px 20px;   
-        display: inline-block;   
-        border: 2px solid green;   
-        box-sizing: border-box;   
-    }  
- button:hover {   
-        opacity: 0.7;   
-    }   
-  .registerbtn {   
-        width: auto;   
-        padding: 10px 18px;  
-        margin: 10px 5px;  
-    }   
-        
-     
- .container {   
-        padding: 25px;   
-        background-color: lightblue;  
-    }   
-</style>   
-</head>    
-<body>    
-    <center> <h1> Login Form </h1> </center>   
-    <form action = "login" method = "post">  
-        <div class="container">   
-            <label>Username : </label>   
-            <input type="text" placeholder="Enter Username" name="uname" required>  
-            <label>Password : </label>   
-            <input type="password" placeholder="Enter Password" name="pwd" required>  
-            <button type="submit" name="action" value="login">Login</button>   
-            <input type="checkbox" checked="checked" name="remember"> Remember me   
-            <button type="submit" name="action" value="register" class = "registerbtn"> Register</button>   
-            Forgot <a href="#"> password? </a>   
-        </div>   
-    </form>     
-</body>     
-</html> 
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core"%>
+
+<!-- BEGIN CONTENT -->
+<div class="main">
+	<div class="container">
+		<div class="col-md-9 col-sm-9">
+			<h1>Login</h1>
+			<div class="content-form-page">
+				<div class="row">
+					<div class="col-md-7 col-sm-7">
+						<form  action="login" method="post" "form-horizontal form-without-legend" role="form">
+							<div class="form-group">
+								<label for="email" class="col-lg-4 control-label">Username
+									<span class="require">*</span>
+								</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" id="email"  name="uname">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-lg-4 control-label">Password
+									<span class="require">*</span>
+								</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" id="password" name="pwd">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-8 col-md-offset-4 padding-left-0">
+									<a href="${pageContext.request.contextPath }/forgotpwd">Forget Password?</a>
+								</div>
+							</div>
+							<div class="row">
+								<div
+									class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+									<button type="submit" class="btn btn-primary">Login</button>
+								</div>
+							</div>
+							<div class="row">
+								<div
+									class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-10 padding-right-30">
+									<hr>
+									<div class="login-socio">
+										<p class="text-muted">or login using:</p>
+										<ul class="social-icons">
+											<li><a href="#" data-original-title="facebook"
+												class="facebook" title="facebook"></a></li>
+											<li><a href="#" data-original-title="Twitter"
+												class="twitter" title="Twitter"></a></li>
+											<li><a href="#" data-original-title="Google Plus"
+												class="googleplus" title="Google Plus"></a></li>
+											<li><a href="#" data-original-title="Linkedin"
+												class="linkedin" title="LinkedIn"></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4 col-sm-4 pull-right">
+						<div class="form-info">
+							<h2>
+								<em>Important</em> Information
+							</h2>
+							<p>Duis autem vel eum iriure at dolor vulputate velit esse
+								vel molestie at dolore.</p>
+
+							<button type="button" class="btn btn-default">More
+								details</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END CONTENT -->
+	</div>
+</div>
